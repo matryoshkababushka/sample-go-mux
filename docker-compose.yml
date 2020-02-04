@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+
+  changeme_dev:
+    build:
+      context: ./
+    image: changeme_go
+    volumes:
+        - ./:/home/changeme/app
+    entrypoint: bash init-start.sh
+    restart: on-failure
+    ports:
+      - 127.0.0.1:8080:8080
